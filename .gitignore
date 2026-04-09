@@ -1,0 +1,44 @@
+# Architecture guide (local-only learning document)
+ARCHITECTURE.md
+
+# Laravel
+/vendor
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+.env
+.env.backup
+.env.production
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+
+# IDE
+/.fleet
+/.idea
+/.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Testing
+/coverage
+.phpunit.result.cache
+
+# Compiled assets
+/public/css/app.css
+/public/js/app.js
+
+# Logs
+*.log
