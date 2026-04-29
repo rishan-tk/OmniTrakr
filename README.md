@@ -2,7 +2,7 @@
 
 A high-performance Laravel + Vue.js web application for tracking movies, TV shows, anime, manga, books, comics, games, board games, tabletop RPGs, music, podcasts, restaurants, and more — all in one place.
 
-> **Note:** A detailed `ARCHITECTURE.md` file exists locally (gitignored) that explains how every part of the system fits together — Docker containers, module structure, request lifecycle, worker lifecycle, the fallback system, database layer, and a step-by-step guide for adding new content types. Run `git clone` then ask for the file separately.
+> **Note:** A detailed `ARCHITECTURE.md` file exists locally (gitignored) that explains how every part of the system fits together — multi-image Docker strategy, inter-container communication rules (DB-only), module structure, request and worker lifecycles, the fallback system, design patterns (Factory, Strategy, Repository, Builder, Adapter, Decorator, Observer), boilerplate code templates, and a step-by-step guide for adding new content types.
 
 ---
 
@@ -342,11 +342,12 @@ Each hub uses at least 3 APIs where possible. If the primary fails (timeout/rate
 ## Tech Stack
 
 ### Backend
-- **Laravel 10+** — modern PHP framework
-- **PostgreSQL 16+** — relational data with JSONB support, superior indexing, and full-text search
-- **Redis** — caching layer for API responses and sessions
+- **Laravel 10+** — modern PHP framework with modular monolith structure
+- **PostgreSQL 16+** — single source of truth, JSONB support, superior indexing
+- **Redis** — caching layer, sessions, queue broker
 - **Laravel Horizon** — queue monitoring and management
-- **Docker** — containerised deployment with independent worker containers per content type
+- **Docker** — five separate images (web / worker / horizon / scheduler / nginx) for independent build and deploy
+- **Containers communicate ONLY via PostgreSQL** — no inter-service HTTP calls, full decoupling
 
 ### Frontend
 - **Vue 3 (Composition API)** — lightweight, fast, excellent Laravel integration
