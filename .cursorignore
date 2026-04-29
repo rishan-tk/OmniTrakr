@@ -1,0 +1,35 @@
+﻿# Dependencies & compiled assets
+/vendor/
+/node_modules/
+/public/build/
+/public/hot/
+/public/storage
+
+# Laravel bootstrap & runtime caches
+/bootstrap/cache/*.php
+
+# Environment (secrets)
+.env
+.env.*
+!.env.example
+
+# Storage noise
+/storage/*.key
+/storage/logs/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+
+# Testing & tooling
+/coverage/
+.phpunit.result.cache
+
+# Local-only docs (matches .gitignore)
+ARCHITECTURE.md
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

@@ -18,6 +18,8 @@ npm-debug.log
 yarn-error.log
 
 # IDE
+# Cursor (local skills, MCP config, rules — do not commit)
+/.cursor
 /.fleet
 /.idea
 /.vscode
